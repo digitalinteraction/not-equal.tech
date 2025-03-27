@@ -1,5 +1,5 @@
 <template>
-  <Transition name="fade">
+  <!-- <Transition name="fade">
     <div v-if="props.show"
       class="z-10 mt-[90px] sm:mt-0 sm:ml-[96px] fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity min-h-full overflow-y-auto overflow-x-auto">
       <div class="bg-white bg-opacity-80">
@@ -54,53 +54,53 @@
         </ais-instant-search>
       </div>
     </div>
-  </Transition>
+  </Transition> -->
 </template>
 
 <script setup lang="ts">
-import debounce from 'lodash.debounce'
-import { emit } from 'process';
-import { AisInstantSearch } from 'vue-instantsearch/vue3/es/index.js'
+// import debounce from 'lodash.debounce'
+// import { emit } from 'process';
+// import { AisInstantSearch } from 'vue-instantsearch/vue3/es/index.js'
 
-const algolia = useAlgoliaRef()
+// const algolia = useAlgoliaRef()
 
-const emit = defineEmits(['close'])
+// const emit = defineEmits(['close'])
 
-const props = defineProps<{
-  show: boolean
-}>()
+// const props = defineProps<{
+//   show: boolean
+// }>()
 
-const { result, search } = useAlgoliaSearch('projects')
+// const { result, search } = useAlgoliaSearch('projects')
 
-const searchQuery = ref('')
-const hasResults = ref(false)
+// const searchQuery = ref('')
+// const hasResults = ref(false)
 
-const clear = () => {
-  searchQuery.value = ''
-}
+// const clear = () => {
+//   searchQuery.value = ''
+// }
 
-const close = () => {
-  clear()
-  emit('close')
-}
+// const close = () => {
+//   clear()
+//   emit('close')
+// }
 
-const update = debounce(async () => {
-  if (searchQuery.value && searchQuery.value.length > 3) {
-    await search({ indexName: 'projects', query: searchQuery.value })
-    hasResults.value = true
-  }
-}, 500)
+// const update = debounce(async () => {
+//   if (searchQuery.value && searchQuery.value.length > 3) {
+//     await search({ indexName: 'projects', query: searchQuery.value })
+//     hasResults.value = true
+//   }
+// }, 500)
 
 
-watch(searchQuery, () => {
-  if (searchQuery.value.length == 0) {
-    hasResults.value = false
-  }
-  update()
-})
+// watch(searchQuery, () => {
+//   if (searchQuery.value.length == 0) {
+//     hasResults.value = false
+//   }
+//   update()
+// })
 
-onMounted(async () => {
-})
+// onMounted(async () => {
+// })
 
 </script>
 

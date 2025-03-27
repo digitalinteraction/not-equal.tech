@@ -70,3 +70,13 @@ Use the following settings:
 | Authorization callback URL | https://not-equal-netlify-cms-github-oauth-provider.vercel.app/callback |
 
 The resulting Client ID and Client Secret should be set as environment variables in the Vercel deployment of the Not-Equal-Github-Oauth-Provider project.
+
+## Open Lab deployment
+
+The app is built as a docker container and deployed through [Open Lab Hub](https://hub.openlab.dev/apps/containers/12)
+with a [Switchboard domain](https://hub.openlab.dev/switchboard/domains/20) as the reverse proxy.
+
+> **2025-03-27 NOTE:** I couldn't get it building in a container, run the build with `pnpm generate` first,
+> You need pnpm@8 to use the existing lock file
+>
+> I also had to take out the search functionality to get it installing properly
